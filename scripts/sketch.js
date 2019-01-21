@@ -5,7 +5,7 @@ let circle;
 let fourierPainter;
 function setup() {
 	let circle = new Circle(100,1,0, time)
-	let circle2 = new Circle(50,2,0, time)
+	let circle2 = new Circle(10,10,0, time)
 	fourierPainter = new FourierPainter([circle, circle2])
 	createCanvas(window.innerWidth, window.innerHeight)
   // put setup code here
