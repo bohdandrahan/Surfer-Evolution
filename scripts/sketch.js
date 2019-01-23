@@ -12,7 +12,7 @@ function setup() {
 	// let circle = new Circle(100,1,0, time)
 	// let circle2 = new Circle(50,2,0, time)
 	// surfer = new Surfer([circle, circle2])
-	surfer = new Surfer(null, 10)
+	surfer = new SquareWaveSurfer(40)
 	fourierPainter = new FourierPainter(surfer, time, 200, height/2)
 }
 
@@ -20,7 +20,7 @@ function draw() {
 	background(200);
 	stroke(255);
 	fourierPainter.display()
-	time.current += 0.01
+	time.current += 0.03
 }
 
 function windowResized() {

@@ -1,5 +1,5 @@
 class Surfer{
-	constructor(circles = null, N = 100){
+	constructor(N = 100, circles = null){
 		if (circles){
 			this.circles = circles
 		}else{
@@ -13,15 +13,27 @@ class Surfer{
 		}
 	}
 	createNewCircle(){
-		let newRadius = random(50);
-		let newCircle = new Circle(newRadius, 0, time);
+		let newRadius = this.getNewRadius();
+		let newFrequency = this.getNewFrequency();
+		let newCircle = new Circle(newRadius, time, newFrequency);
 		return newCircle;
 	}
+	getNewRadius(){
+		return random(50)
+	}
 	getNewFrequency(){
-		if (this.circles.length === 0){
-			return 1
-		} else{
-			return (this.circles.length * 2)
-		}
+			return this.circles.length + 1
+	}
+	sortedCircles(circles){
+		circles.sort((a, b) =>{
+			if (a.radius > b.radius){
+				return -1
+			} else if (a.radius > b.radius){
+				return 1
+			}else{
+				return 0
+			}
+		});
+		return circles
 	}
 }
