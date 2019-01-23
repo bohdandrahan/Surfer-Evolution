@@ -3,22 +3,30 @@
 let time = {current:0};
 let circle;
 let fourierPainter;
+let height = 500;
 function setup() {
 	width = 0.9 * windowWidth;
-  let canvas = createCanvas(width, 400);
+  let canvas = createCanvas(width, height);
   canvas.parent('sketch-holder')
 
-	let circle = new Circle(100,1,0, time)
-	let circle2 = new Circle(10,10,0, time)
-	fourierPainter = new FourierPainter([circle, circle2])
+	// let circle = new Circle(100,1,0, time)
+	// let circle2 = new Circle(50,2,0, time)
+	// surfer = new Surfer([circle, circle2])
+	surfer = new Surfer(null, 10)
+	fourierPainter = new FourierPainter(surfer, time, 200, height/2)
 }
 
 function draw() {
-	scale(1)
-	background(100);
+	background(200);
 	stroke(255);
 	fourierPainter.display()
 	time.current += 0.01
+}
 
-  // put drawing code here
+function windowResized() {
+  width = 0.9 * windowWidth;
+  resizeCanvas(width, height);
+
+  //Set width of controls
+  // document.querySelector('.controls').style.width = width + "px";
 }

@@ -1,9 +1,13 @@
 class Circle{
-	constructor(radius, frequency, offset, time){
+	constructor(radius, offset, time, frequency = null){
 		this.radius = radius
 		this.frequency = frequency
 		this.offset = offset
 		this.time = time
+	}
+	setFrequency(fq){
+		this.frequency = fq
+
 	}
 	setPosition(point_){
 		this.position = createVector(point_.x, point_.y)
@@ -15,10 +19,13 @@ class Circle{
 
 	}
 	display(){
-		stroke(255);
+		colorMode(HSB)
+		stroke(3*this.radius%355, 255, 255);
+		strokeWeight(2)
 		noFill();
 		ellipse(this.position.x, this.position.y, this.radius*2)
 		this.calculatePoint()
 		line(this.position.x, this.position.y, this.point.x, this.point.y)
+		colorMode(RGB)
 	}
 }

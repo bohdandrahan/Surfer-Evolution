@@ -1,7 +1,6 @@
 class FourierPainter{
-	constructor(circles, time, x = 200, y = 200, scale = 1){
-		this.circles = this.sortedCircles(circles)
-		this.scale = scale
+	constructor(surfer, time, x = 200, y = 200){
+		this.circles = this.sortedCircles(surfer.circles)
 		this.position = createVector(x, y);
 		this.wave = []
 		this.point = createVector(0,0)
@@ -21,15 +20,23 @@ class FourierPainter{
 	}
 	updateWave(){
 		this.wave.unshift(this.point.y);
-		if (this.wave.length > 700){
+		if (this.wave.length > 900){
 			this.wave.pop()
 		}
-
+	}
+	getFrequency(index){
+		if (index === 0){
+			return 1
+		} else{
+			return (index * 2)
+		}
 	}
 	display(){
 		translate(this.position.x, this.position.y)
+		ellipse(0,0, 10)
 		this.point = createVector(0, 0)
-		this.circles.forEach((circle) =>{
+		this.circles.forEach((circle, index) =>{
+			circle.setFrequency(this.getFrequency(index))
 			circle.setPosition(this.point);
 			circle.display();
 			this.point = circle.point
@@ -40,6 +47,7 @@ class FourierPainter{
 		this.updateWave()
 		this.displayWave()
 		stroke(255)
+		strokeWeight(1)
 		line(this.point.x, this.point.y, this.shift, this.point.y)
 	}
 	displayWave(){
