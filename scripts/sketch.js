@@ -9,10 +9,12 @@ function setup() {
   let canvas = createCanvas(width, height);
   canvas.parent('sketch-holder')
 
-	// let circle = new Circle(100,1,0, time)
-	// let circle2 = new Circle(50,2,0, time)
-	// surfer = new Surfer([circle, circle2])
-	surfer = new SquareWaveSurfer(40)
+	surfer = new Surfer(10)
+	surfer = new SquareWaveSurfer(10)
+	surfer = new SawtoothWaveSurfer(100)
+	surfer = new TriangleWaveSurfer(2)
+
+	
 	fourierPainter = new FourierPainter(surfer, time, 200, height/2)
 }
 
@@ -20,7 +22,7 @@ function draw() {
 	background(200);
 	stroke(255);
 	fourierPainter.display()
-	time.current += 0.03
+	time.current += 0.05
 }
 
 function windowResized() {

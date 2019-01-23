@@ -1,0 +1,3 @@
+http://www.academia.edu/7007379/A_NOTE_ON_FOURIER_SERIES_OF_HALF_WAVE_RECTIFIER_FULL_WAVE_RECTIFIER_AND_UNRECTIFIED_SINE_WAVE
+http://mathworld.wolfram.com/FourierSeriesSawtoothWave.html
+http://mathworld.wolfram.com/FourierSeriesTriangleWave.html

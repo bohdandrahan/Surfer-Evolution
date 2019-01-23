@@ -5,6 +5,7 @@ class FourierPainter{
 		this.wave = []
 		this.point = createVector(0,0)
 		this.shift = 200
+		this.time = time
 	}
 
 	updateWave(){
@@ -32,9 +33,9 @@ class FourierPainter{
 	}
 	displayWave(){
 		beginShape();
+		noFill()
+		stroke(0)
 		this.wave.forEach((y, x) =>{
-			noFill()
-			stroke(0)
 			vertex(x + this.shift, y);
 		});
 		endShape();

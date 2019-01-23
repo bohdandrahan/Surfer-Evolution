@@ -1,8 +1,9 @@
 class Circle{
-	constructor(radius, time, frequency = null){
+	constructor(radius, time, frequency = null, offset = 0){
 		this.radius = radius
 		this.frequency = frequency
 		this.time = time
+		this.offset = offset
 	}
 	setFrequency(fq){
 		this.frequency = fq
@@ -12,8 +13,8 @@ class Circle{
 		this.position = createVector(point_.x, point_.y)
 	}
 	calculatePoint(){
-		let x = this.radius * cos(this.frequency*(this.time.current)) + this.position.x;
-		let y = this.radius * sin(this.frequency*(this.time.current)) + this.position.y;
+		let x = this.radius * cos(this.frequency*(this.time.current + this.offset)) + this.position.x;
+		let y = this.radius * sin(this.frequency*(this.time.current + this.offset)) + this.position.y;
 		this.point = createVector(x, y)
 
 	}
