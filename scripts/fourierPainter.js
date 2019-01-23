@@ -43,10 +43,10 @@ class FourierPainter{
 		line(this.point.x, this.point.y, this.shift, this.point.y)
 	}
 	displayWave(){
-
 		this.wave.forEach((y, x) =>{
-			stroke(255,0,0)
+			fill('red')
 			ellipse(x + this.shift, y, 2);
+
 		});
 	}
 }
